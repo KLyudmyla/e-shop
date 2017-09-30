@@ -1,0 +1,120 @@
+html{font-family: sans-serif;
+	color: #333;
+    background-color: #fff;
+}
+body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;}
+
+
+h2{	
+	font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+    background: #fff}
+
+.contact{
+	background: #f8f8f8}
+
+.col1{ margin: 20px 0 0 20px;
+	loat: left;
+ 	display: table-cell;
+	 background: #f8f8f8;
+	 width: 50%}
+
+.col2{
+	margin: 20px 0 0 20px;
+	float: right;
+	display:table-cell;
+	width:50%}
+.col3{display:table-row; width:50%}
+
+p{
+	margin: 0 0 10px;}
+
+a{  color: #333;
+	text-decoration: none;}
+
+.login-btn {
+    font-size: 16px;
+    font-weight: normal;
+    color: rgb(22, 134, 174);
+    background-color: #ffffff;
+    text-transform: uppercase;
+    line-height: 1.875;
+    padding-top: 3px;
+    text-align: center;
+    border: 1px solid rgb(22, 134, 174);
+    border-radius: 5px;
+    width: 186px;
+    height: 37px;
+    box-sizing: border-box;
+	margin-left: 90%;
+}
+.login-btn:hover {
+    box-shadow: 0 0 4px 2px rgba(22, 134, 174, 0.24);
+    color: rgb(22, 134, 174);
+}
+.login-btn:active {
+    color: rgb(78, 169, 201);
+    border: 1px solid rgb(133, 184, 202);
+    box-shadow: 0 0 2px 1px rgba(22, 134, 174, 0);
+}
+
+
+
+/* строка меню */
+#menu {
+    margin: 0px;
+    padding: 0px 5px 0px 5px;
+    list-style: none;
+    height: 32px;
+    border-bottom: 2px solid #DDDDDD;
+    background: #FFFFFF;
+    font-family: Arial;
+}
+
+/* вкладка меню */
+#menu li {
+    float: left;
+    display: inline;
+    margin: 0px 2px -1px 0px;
+    padding: 5px 25px 5px 25px;
+    cursor: pointer;
+    color: #999999;
+    background: #F4F4F4;
+    border: 2px solid #DDDDDD;
+    font-weight: bold;
+    border-radius: 16 16 0 0;
+}
+
+/* активная вкладка меню */
+.tab_active {
+    border-bottom: 2px solid #FFFFFF !important;
+    color: #000000 !important;
+    background: #FFFFFF !important;
+}
+
+/* контейнер с блоками контента */
+#container {
+    clear: both;
+    border-radius: 0 0 8 8;
+    padding: 5px;
+}
+
+/* скрытый блок контента */
+#container .tab_content {
+    display: none;
+}
+
+/* видимый блок контента */
+.visible {
+    display: block !important;
+}
+
+#settings_content, #students_content, #exam_content, #past_exams_content, #upcoming_exams_content{
+    display: none;
+}

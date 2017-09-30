@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+
+
+Введите E-mail пользователя:
+<form method="post">
+      {% csrf_token %}
+   {{ form1.as_p }}
+
+   {{ form2.as_p }}
+   <input type="submit" value = "Присвоить код " />
+</form>
+
+Покупателю {{ users.0 }} присвоен код {{ code }}
+{% endblock content %}
+
+

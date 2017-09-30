@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<p>You are already authorized.</p>
+<p class="form">
+    <a href="{% url 'login:logout'%}">
+        <button type="button" class="btn btn-primary">Logout</button>
+    </a>
+</p>
+<p class="form">
+    <a href="{% url 'index'%}">
+        <button type="button" class="btn btn-primary">Home</button>
+    </a>
+</p>
+
+{% else %}
+
+<main>
+    <section class="registr-form">
+
+        <div id="sign">
+            <h4 class="title" style="margin-bottom: 10px;">Sign Up</h4>
+        </div>
+
+        <div id="login_title" class="login_title-div">Or register</div>
+
+        <form id="form" class="form-horizontal form" style="margin-bottom: 40px;" enctype="multipart/form-data"
+              method="POST" action=".">{% csrf_token %}
+            <div class="form_item login_f">
+                {% csrf_token %}{{ form.username }}
+            </div>
+
+            <div class="form_item login_f">
+                {% csrf_token %}{{ form.email }}
+            </div>
+
+            <div class="form_item login_f">
+                {% csrf_token %}{{ form.password1 }}
+            </div>
+
+            <div class="form_item login_f">
+                {% csrf_token %}{{ form.password2 }}
+            </div>
+
+            <div class="button-log-in reg-btn">
+                <button type="submit" href="#">Create account</button>
+            </div>
+
+            <div id="to-left">
+                <span class="left-words-form">Have an account? </span><a class="right-words-form" data-toggle="modal"
+                                                                         href="{% url 'login:login_customer' %}">Login here</a>
+            </div>
+        </form>
+
+
+        {% endif %}
+    </section>
+</main>
+{% endblock content %}
+

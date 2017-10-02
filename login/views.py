@@ -21,7 +21,7 @@ class LoginView(FormView):
 
         try:
             pk = self.request.user.staff.id
-            return reverse('goods:discount_code')
+            return reverse('goods:user_search')
         except:
             messages.error(self.request, 'You are not registered as Customer and as Staff',
                            extra_tags='success')

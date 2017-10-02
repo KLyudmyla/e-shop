@@ -8,16 +8,39 @@
 {% block content %}
 
 
-Введите E-mail пользователя:
-<form method="post">
-      {% csrf_token %}
-   {{ form1.as_p }}
 
-   {{ form2.as_p }}
-   <input type="submit" value = "Присвоить код " />
-</form>
 
-Покупателю {{ users.0 }} присвоен код {{ code }}
+   <div>
+
+        <div class='support_titleee' style="margin-bottom: 0;" >
+            <form method="post">
+               {% csrf_token %}
+                <h3>Введите E-mail пользователя:</h3>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        {{ form1.email }}
+                    </div>
+                <h3>Выберите товар:</h3>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-shopping-cart"></i></span>
+                    {{ form2.name }}
+                </div>
+                <div class="form-group">
+
+                    <div class="col-sm-12 controls">
+
+                     <input type="submit"  class="btn btn-default" value = "Присвоить код"/>
+
+                    </div>
+                 </div>
+           </form>
+        <br>
+        </div>
+        <div class="contenttt"><p>{{ result }}</p>
+        </div>
+    </div>
+
+
 {% endblock content %}
 
 

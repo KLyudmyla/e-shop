@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+<!-- меню с вкладками -->
+<!-- контейнер со страницами -->
+<div id="container">
+    <h2>Коды выданные пользователю <b> {{ users.0.user.username }}</b></h2>
+    <h2>  Discount коды: </h2>
+    <div>
+      <table class="table table-hover">
+          <tr><td><b>Code</b></td> <td><b>Good</b></td> <td><b>Staff</b></td> <td><b>Date</b></td> </tr>
+          {% for code in discount_code %}
+              <tr><td>{{ code.0 }}</td><td>{{ code.1 }}</td><td>{{ code.2 }}</td><td>{{ code.3 }}</td></tr>
+          {% endfor %}
+      </table>
+    </div>
+</div>
+
+{% endblock content %}

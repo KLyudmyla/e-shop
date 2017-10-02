@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+    <p>Выбран пользователь {{ users }}.</p>
+    <p>Выберите товар, для которого присвоете discount код</p>
+    <form method="post">
+       {% csrf_token %}
+       {{ form2.as_p }}
+       <input type="submit" value = "Присвоить код" id = 'inp'/>
+    </form>
+
+    {{ result }}
+
+  <p>  <a href="{% url 'customers:discount_code_staff' users.id %}">
+    Просмотреть discount коды выданные пользователю {{ users }}</a>
+  </p>
+
+{% endblock content %}
+
+

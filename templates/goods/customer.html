@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+
+
+Введите E-mail пользователя:
+
+   <div>
+
+        <div class='support_titleee' style="margin-bottom: 0;" >
+            <form method="post" >
+               {% csrf_token %}
+               {{ form.as_p }}
+               <input type="submit" value = "Найти " id = 'inp'/>
+            </form>
+        <br>
+        </div>
+        <div><p>{{ users }}</p>
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+

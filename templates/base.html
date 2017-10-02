@@ -8,9 +8,7 @@
 	    <title>{% block title %}E-SHOP {% endblock title %}</title>
 
         <!-- Bootstrap -->
-	    <link href="{% static 'css/style.css'%}" rel="stylesheet">
-	    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
-        <script src="{% static 'js/scripts.js' %}"></script>
+
 
 
 
@@ -22,7 +20,9 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="http://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
         <script src="{% static 'js/jquery.bootstrap-growl.js' %}"></script>
-
+	    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+	    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
+        <script src="{% static 'js/scripts.js' %}"></script>
 
         <style type="text/css">
      #tabs
@@ -46,6 +46,7 @@
                     <div class="login-btn"><a href="{% url 'login:logout' %}">Logout</a></div>
                 {% else %}
                     <div class="login-btn"><a href="{% url 'login:login' %}">Login</a></div>
+
 
                 {% endif %}
      	    </div>

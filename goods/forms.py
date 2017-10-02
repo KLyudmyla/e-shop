@@ -3,7 +3,7 @@ from .models import Good
 
 
 class SeachForm(forms.Form):
-    email = forms.CharField(label='')
+    email = forms.EmailField(label='')
 
 
 

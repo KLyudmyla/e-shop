@@ -7,6 +7,8 @@ import hashlib
 import random
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.views.generic.list import ListView
+from django.contrib import messages
 
 
 def user_search(request):
@@ -49,16 +51,28 @@ def good_search(request, pk):
                 code = (salt[0] + '-' + salt[1] + '-' + salt[2] + '-' + salt[3]).upper()
             context["code"] = code
 
+            try:
 
-            staff = Staff.objects.filter(user=request.user)
-            new_descount_code = Discount_code(code=code,
-                                              good=good,
-                                              customer=user[0],
-                                              staff=staff[0])
-            new_descount_code.save()
-            context['result'] = 'Покупателю %s присвоен код %s' % (user[0], code)
+                staff = Staff.objects.filter(user=request.user)
+                new_descount_code = Discount_code(code=code,
+                                                  good=good,
+                                                  customer=user[0],
+                                                  staff=staff[0])
+                new_descount_code.save()
+                context['result'] = 'Покупателю %s присвоен код %s' % (user[0], code)
+
+
+            except:
+                messages.error(request, 'You are not registered as Staff',
+                               extra_tags='success')
     else:
         form2 = GoodForm()
         context = {"form2": form2, "users": user[0]}
 
     return render(request, "goods/discount.html", context)
+
+class DiscountsListlView(ListView):
+    model = Discount_code
+    context_object_name = 'discount_list'
+    template_name = 'goods/discount_list.html'
+

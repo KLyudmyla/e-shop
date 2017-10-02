@@ -3,6 +3,7 @@ from customers.models import Customers
 from .models import Discount_code, Good
 from staff.models import Staff
 from django.contrib.auth.models import User
+from .forms import SeachForm
 
 
 class CustomersDetailTest(TestCase):
@@ -96,11 +97,9 @@ class CustomersDetailTest(TestCase):
                                             customer=customer1,
                                             staff=staff1)
         self.assertEqual(Discount_code.objects.all().count(), 1)
-        response = client.get('/customers/staff/1/')
+        response = client.get('/customers/1/')
         self.assertContains(response, "1-A-1-A")
         self.assertContains(response, "name")
-
-
 
 
 class Pages_statuscode_Test(TestCase):
@@ -124,5 +123,36 @@ class Pages_statuscode_Test(TestCase):
         response = client.get('/goods/discount/1/')
         self.assertEqual(response.status_code, 200)
 
+    def test_customer_discount(self):
+        from django.test import Client
+        client = Client()
+        user1 = User.objects.create(
+            username="test",
+            email='test@mail.ru',
+            password='12345678',
+        )
+        customer1 = Customers.objects.create(
+            user=user1,
+        )
+        response = client.get('/goods/discount/1/')
+        self.assertContains(response, '/customers/staff/1/')
 
+
+class UserSearchTests(TestCase):
+    def test_forms(self):
+        form_data = {'email': 'test@mail.com'}
+        form = SeachForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_forms_invalid(self):
+        form_data = {'email': 'test'}
+        form = SeachForm(data=form_data)
+        self.assertEqual(form.is_valid(), False)
+
+
+class UrlTests(TestCase):
+
+    def test_client_login(self):
+        response = self.client.get('/login/login/')
+        self.assertEqual(200, response.status_code)
 

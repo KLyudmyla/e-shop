@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+<!-- меню с вкладками -->
+<!-- контейнер со страницами -->
+<div id="container">
+
+    <h2>  Discount коды: </h2>
+    <div>
+      <table class="table table-hover">
+          <tr><td><b>Code</b></td> <td><b>Good</b></td> <td><b>Staff</b></td> <td><b>Date</b></td> </tr>
+          {% for code in discount_list %}
+              <tr><td>{{ code.code }}</td><td>{{ code.good }}</td><td>{{ code.staff }}</td><td>{{ code.date_of_issue }}</td></tr>
+          {% endfor %}
+      </table>
+    </div>
+</div>
+
+{% endblock content %}

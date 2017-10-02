@@ -21,9 +21,15 @@ def user_search(request):
             print("isvalid")
             email = form.cleaned_data['email']
             user = Customers.objects.filter(user__email=email)
-            pk = user[0].id
-            context["users"] = user
-            return HttpResponseRedirect(reverse('goods:discount', args=(pk,)))
+            try:
+                pk = user[0].id
+                context["users"] = user
+                return HttpResponseRedirect(reverse('goods:discount', args=(pk,)))
+            except:
+                messages.error(request, 'Пользователь с таким E-mail в системе не зарегестрирован',
+                               extra_tags='success')
+            return HttpResponseRedirect(reverse('goods:user_search'))
+
 
     else:
         form = SeachForm()

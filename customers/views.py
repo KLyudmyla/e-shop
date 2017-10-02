@@ -43,3 +43,5 @@ class CustomersDetail_for_staffView(DetailView):
         context['discount_code'] = dc
         context['users'] = Customers.objects.filter(id=pk)
         return context
+
+

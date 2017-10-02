@@ -1,15 +1,27 @@
 Запуск проекта:
+
 В командной строке вводите следующие команды:
+
 mkdir e_shop
+
 cd e_shop
+
 git clone https://your_name@bitbucket.org/ximagination/judolaunch2.git
+
 python3 -m venv myvenv
+
 source myvenv/bin/activate
+
 cd e_shop
+
 pip install -r requirements.txt
+
 http://127.0.0.1:8000 -- здесь можете смотреть проект
+
 Запуск тестов:
+
 python manage.py test
+
 
 Зарегистрированные покупатели:
 

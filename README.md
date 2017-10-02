@@ -41,9 +41,9 @@ customer4	customer4@mail.com	qwe123qwe123
 
 Username	Email	            Password
 
-Staff1	    staff1@mail.com	    qwe123qwe123
+staff1	    staff1@mail.com	    qwe123qwe123
 
-Staff2	    staff2@mail.com	    qwe123qwe123
+staff2	    staff2@mail.com	    qwe123qwe123
 
 
 Вход в админку:

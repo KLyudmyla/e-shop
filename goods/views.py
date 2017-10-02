@@ -26,7 +26,7 @@ def user_search(request):
                 context["users"] = user
                 return HttpResponseRedirect(reverse('goods:discount', args=(pk,)))
             except:
-                messages.error(request, 'Пользователь с таким E-mail в системе не зарегестрирован',
+                messages.error(request, 'Пользователь с таким E-mail в системе не зарегистрирован',
                                extra_tags='success')
             return HttpResponseRedirect(reverse('goods:user_search'))
 
@@ -69,8 +69,7 @@ def good_search(request, pk):
 
 
             except:
-                messages.error(request, 'You are not registered as Staff',
-                               extra_tags='success')
+                messages.error(request, 'Вы не зарегистрированы как персонал', extra_tags='success')
     else:
         form2 = GoodForm()
         context = {"form2": form2, "users": user[0]}

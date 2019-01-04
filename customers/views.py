@@ -1,11 +1,5 @@
-import datetime
-
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from .models import Customers
-from staff.models import Staff
 from goods.models import Discount_code, Good
 
 
@@ -24,7 +18,6 @@ class CustomersDetailView(DetailView):
             dc.append((code, Good.objects.filter(discount_code__code=code)))
         context['discount_code'] = dc
         context['users'] = Customers.objects.filter(id=pk)
-      #  context['user'] = self.request.user.customers
         return context
 
 class CustomersDetail_for_staffView(DetailView):
